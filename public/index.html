@@ -1,8 +1,7 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="scroll-smooth">
 
-  <head>
-    <meta charset="utf-8">
+  <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bible Vision</title>
 
@@ -11,129 +10,100 @@
     <script src="/logic.js" defer></script>
   </head>
 
-  <body class="bg-gradient-to-b from-blue-50 via-white to-indigo-100 text-gray-900 min-h-screen flex flex-col antialiased">
+  <body class="bg-[#F5F1E8] text-gray-800 min-h-screen flex antialiased">
     
-    <!-- Header -->
-  <header style="position:sticky;top:0;" class="sticky top-0 z-40 bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 shadow-lg text-white backdrop-blur-sm bg-opacity-95">
-      <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 class="text-2xl font-bold tracking-tight hover:scale-105 transition-transform duration-300">
-          ✨ Bible Vision
+    <!-- Side Navigation -->
+    <aside class="w-80 bg-gradient-to-b from-[#E8DCC4] to-[#D4C5A9] border-r-2 border-[#8B7355] flex flex-col shadow-lg">
+      <!-- Header -->
+      <header class="bg-gradient-to-r from-[#8B7355] to-[#A0865F] text-[#F5F1E8] px-6 py-5 border-b-2 border-[#D4A574]">
+        <h1 class="text-2xl font-serif font-bold tracking-wide">
+          ✝ Bible Vision
         </h1>
+        <p class="text-sm text-[#F4E4C1] mt-1">Scripture Explorer</p>
+      </header>
 
-        <nav>
-          <ul class="flex items-center gap-6 text-sm font-medium">
-            <li><a id="nav-home" href="#lookup" class="hover:text-yellow-300 transition-colors">Lookup</a></li>
-            <li><a id="nav-about" href="#about" class="hover:text-yellow-300 transition-colors">About</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Main Section -->
-    <main class="flex-grow max-w-6xl mx-auto p-6 sm:p-10">
-      <!-- Hero Card -->
-      <section class="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center transform transition-transform duration-500 hover:-translate-y-1">
-        <div>
-          <h2 class="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-600 leading-tight">Bible Vision</h2>
-          <p class="mt-4 text-lg text-gray-700 max-w-xl">A small interactive demo. Explore ancient disciples with modern insight.</p>
-
-          <div class="mt-6 flex flex-wrap gap-3">
-            <button id="btn-explore" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 focus:outline-none">
-              🔍 Explore Vision
-            </button>
-            <!-- View Notes removed per request -->
-            <a href="#quote" class="ml-2 self-center text-sm text-gray-600 hover:text-indigo-700 underline">Read a reflection →</a>
-          </div>
+      <!-- Navigation Controls -->
+      <nav class="flex-grow px-6 py-6 space-y-6 overflow-y-auto">
+        <!-- Random Verse -->
+        <div class="space-y-2">
+          <h3 class="text-sm font-semibold text-[#6B5644] uppercase tracking-wide">Explore</h3>
+          <button id="btn-random" class="w-full px-4 py-3 bg-gradient-to-r from-[#D4A574] to-[#C9963E] hover:from-[#C9963E] hover:to-[#B8862D] text-white rounded border-2 border-[#B8862D] font-medium transition-all shadow-md hover:shadow-lg">
+            ✨ Random Verse
+          </button>
         </div>
 
-        <div class="p-6 bg-gradient-to-br from-indigo-50 to-white rounded-2xl border border-indigo-100 shadow-inner">
-          <div class="flex items-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl shadow-md">✝️</div>
-            <div>
-              <h3 class="font-bold text-lg text-indigo-700">Simon the Zealot</h3>
-              <p class="text-sm text-gray-600">A disciple with passion for justice and a curious mind. Learn short reflections and notes.</p>
-            </div>
-          </div>
-
-          <div class="mt-6 grid grid-cols-2 gap-4">
-            <div class="p-3 bg-white rounded-lg border border-gray-100 shadow-sm">
-              <p class="text-xs text-gray-500">Role</p>
-              <p class="font-semibold text-sm text-gray-800">Apostle</p>
-            </div>
-            <div class="p-3 bg-white rounded-lg border border-gray-100 shadow-sm">
-              <p class="text-xs text-gray-500">Focus</p>
-              <p class="font-semibold text-sm text-gray-800">Zeal & Service</p>
-            </div>
-          </div>
-        </div>
-      </section>
-  <!-- Lookup Panel -->
-  <section id="lookup" class="mt-8 bg-white/60 p-6 rounded-xl shadow-md">
-        <h3 class="text-lg font-semibold text-indigo-700">Lookup</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <!-- Verse Lookup -->
+        <div class="space-y-2">
+          <h3 class="text-sm font-semibold text-[#6B5644] uppercase tracking-wide">Verse Lookup</h3>
           <form id="bv-verse-form" class="space-y-2">
-            <label class="block text-sm text-gray-600">Chapter or Verse lookup (book, chapter, verse (optional))</label>
+            <input id="bv-verse-book" class="w-full px-3 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none focus:ring-2 focus:ring-[#F4E4C1]" placeholder="Book (e.g., John)" />
             <div class="flex gap-2">
-              <input id="bv-verse-book" class="flex-1 px-3 py-2 rounded-md border" placeholder="John" />
-              <input id="bv-verse-chapter" class="w-20 px-3 py-2 rounded-md border" placeholder="3" />
-              <input id="bv-verse-verse" class="w-20 px-3 py-2 rounded-md border" placeholder="16" />
-              <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Find</button>
+              <input id="bv-verse-chapter" class="w-16 px-2 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none text-center" placeholder="Ch" />
+              <input id="bv-verse-verse" class="w-16 px-2 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none text-center" placeholder="V" />
             </div>
-          </form>
-
-          <form id="bv-book-form" class="space-y-2">
-            <label class="block text-sm text-gray-600">Book lookup</label>
-            <div class="flex gap-2">
-              <input id="bv-book-name" class="flex-1 px-3 py-2 rounded-md border" placeholder="Psalms" />
-              <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Open</button>
-            </div>
-          </form>
-
-          <form id="bv-count-form" class="space-y-2">
-            <label class="block text-sm text-gray-600">Count word occurrences</label>
-            <div class="flex gap-2">
-              <input id="bv-count-word" class="flex-1 px-3 py-2 rounded-md border" placeholder="love" />
-              <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Count</button>
-            </div>
-          </form>
-
-          <form id="bv-search-form" class="space-y-2">
-            <label class="block text-sm text-gray-600">Search text</label>
-            <div class="flex gap-2">
-              <input id="bv-search-q" class="flex-1 px-3 py-2 rounded-md border" placeholder="faith" />
-              <input id="bv-search-book" class="w-36 px-3 py-2 rounded-md border" placeholder="optional book (e.g. John)" />
-              <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Search</button>
-            </div>
+            <button class="w-full px-4 py-2 bg-[#8B7355] hover:bg-[#A0865F] text-[#F5F1E8] rounded border-2 border-[#6B5644] transition-colors">Find</button>
           </form>
         </div>
 
-        <div id="bv-result" class="mt-4 text-left text-gray-800"></div>
-      </section>
+        <!-- Book Lookup -->
+        <div class="space-y-2">
+          <h3 class="text-sm font-semibold text-[#6B5644] uppercase tracking-wide">Book Lookup</h3>
+          <form id="bv-book-form" class="space-y-2">
+            <input id="bv-book-name" class="w-full px-3 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none focus:ring-2 focus:ring-[#F4E4C1]" placeholder="Book name" />
+            <button class="w-full px-4 py-2 bg-[#8B7355] hover:bg-[#A0865F] text-[#F5F1E8] rounded border-2 border-[#6B5644] transition-colors">Open Book</button>
+          </form>
+        </div>
 
+        <!-- Search -->
+        <div class="space-y-2">
+          <h3 class="text-sm font-semibold text-[#6B5644] uppercase tracking-wide">Search</h3>
+          <form id="bv-search-form" class="space-y-2">
+            <input id="bv-search-q" class="w-full px-3 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none focus:ring-2 focus:ring-[#F4E4C1]" placeholder="Search text" />
+            <input id="bv-search-book" class="w-full px-3 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none focus:ring-2 focus:ring-[#F4E4C1]" placeholder="In book (optional)" />
+            <button class="w-full px-4 py-2 bg-[#8B7355] hover:bg-[#A0865F] text-[#F5F1E8] rounded border-2 border-[#6B5644] transition-colors">Search</button>
+          </form>
+        </div>
 
-      <!-- Quote Section -->
-      
+        <!-- Word Count -->
+        <div class="space-y-2">
+          <h3 class="text-sm font-semibold text-[#6B5644] uppercase tracking-wide">Word Count</h3>
+          <form id="bv-count-form" class="space-y-2">
+            <input id="bv-count-word" class="w-full px-3 py-2 rounded border-2 border-[#D4A574] bg-[#F5F1E8] focus:border-[#C9963E] focus:outline-none focus:ring-2 focus:ring-[#F4E4C1]" placeholder="Word to count" />
+            <button class="w-full px-4 py-2 bg-[#8B7355] hover:bg-[#A0865F] text-[#F5F1E8] rounded border-2 border-[#6B5644] transition-colors">Count</button>
+          </form>
+        </div>
+      </nav>
 
-      <section id="quote" class="mt-10 text-center">
-        <blockquote class="italic text-gray-700 text-lg max-w-3xl mx-auto relative bg-white/60 p-6 rounded-xl shadow-md">
-          <span class="text-5xl text-indigo-400 absolute -left-6 -top-4">“</span>
-          He who has eyes, let him see — for vision without faith is mere sight.
-          <span class="text-5xl text-indigo-400 absolute -right-6 -bottom-4">”</span>
-        </blockquote>
-        <p class="mt-3 text-sm text-gray-500">— Gospel Reflections</p>
-      </section>
-    </main>
-    <section id="about" class="mt-10 max-w-3xl mx-auto text-center">
-        <h3 class="text-2xl font-semibold text-indigo-700">About Bible Vision</h3>
-        <p class="mt-3 text-gray-600">An interactive demo exploring scripture with quick lookups and searches.</p>
-      </section>
+      <!-- Footer -->
+      <footer class="px-6 py-4 border-t-2 border-[#8B7355] text-center text-xs text-[#6B5644]">
+        <p>© 2025 Bible Vision</p>
+      </footer>
+    </aside>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-indigo-700 via-blue-700 to-purple-700 text-gray-100 py-6 mt-auto">
-      <div class="max-w-5xl mx-auto text-center text-sm">
-        <p>© 2025 <span class="font-semibold">Bible Vision</span></p>
+    <!-- Main Content Area -->
+    <main class="flex-grow flex flex-col overflow-hidden">
+      <!-- Content Header -->
+      <div class="bg-gradient-to-r from-[#F4E4C1] to-[#E8DCC4] border-b-2 border-[#D4A574] px-8 py-6">
+        <h2 class="text-3xl font-serif font-bold text-[#6B5644]">Scripture</h2>
+        <p class="text-sm text-[#8B7355] mt-1">Select a verse, book, or search to begin</p>
       </div>
-    </footer>
+
+      <!-- Scrollable Content -->
+      <div class="flex-grow overflow-y-auto px-8 py-6">
+        <div id="bv-result" class="prose prose-stone max-w-none">
+          <!-- Welcome Message -->
+          <div class="text-center py-12">
+            <div class="inline-block p-6 bg-gradient-to-br from-[#F4E4C1] to-[#E8DCC4] rounded-lg border-2 border-[#D4A574] shadow-md">
+              <p class="text-lg text-[#6B5644] font-serif italic">
+                "Your word is a lamp to my feet and a light to my path."
+              </p>
+              <p class="text-sm text-[#C9963E] font-semibold mt-2">— Psalm 119:105</p>
+            </div>
+            <p class="mt-6 text-[#8B7355]">Use the navigation panel to explore scripture</p>
+          </div>
+        </div>
+      </div>
+    </main>
 
   </body>
 </html>
