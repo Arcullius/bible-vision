@@ -5,12 +5,17 @@
   "scripts": {
     "test": "playwright test",
     "start": "node server.js",
-    "tailwind": "tailwindcss -i ./tailwind/input.css -o ./public/output.css --watch"
+    "tailwind": "tailwindcss -i ./tailwind/input.css -o ./public/output.css --watch",
+    "serve": "concurrently \"npm run tailwind\" \"npm start\"",
+    "build": "esbuild public/logic.js --bundle --outfile=public/bundle.js --minify",
+    "dev": "concurrently \"npm run tailwind\" \"npm start\" \"npm run build -- --watch\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.14",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.27.0",
     "playwright": "^1.56.0"
   },
   "devDependencies": {

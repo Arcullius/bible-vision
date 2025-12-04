@@ -5,13 +5,13 @@ module.exports = defineConfig({
     testMatch: ['**/*.js'],
   outputDir: 'test-results/artifacts/',
   use: {
-    baseURL: 'http://localhost:4004',
+    baseURL: 'http://localhost:4101',
     headless: true,
     
   },
     webServer: {
     command: 'node server.js',
-    url: 'http://localhost:4004',
+    url: 'http://localhost:4101',
     reuseExistingServer: true,
     timeout: 20000
   },
