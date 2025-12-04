@@ -36,9 +36,7 @@ function wait(ms) {
   // TODO Q1:
   //   - Return a Promise.
   //   - Inside the Promise, use setTimeout to resolve after ms milliseconds.
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+  return new Promise((r) => {setTimeout(r, ms);});
 }
 
 /**
@@ -100,12 +98,8 @@ function sumSquaresParallel(nums) {
   //        - then resolve to n * n
   //   2. Use Promise.all on that array.
   //   3. Sum the results and return that sum.
-  const promises = nums.map(n => 
-    wait(5).then(() => n * n)
-  );
-  return Promise.all(promises).then(s => 
-    s.reduce((sum, sq) => sum + sq, 0)
-  );
+  const promises = nums.map(n => wait(5).then(() => n * n));
+  return Promise.all(promises).then(s => s.reduce((sum, sq) => sum + sq, 0));
 }
 
 /**
@@ -133,11 +127,7 @@ function collectSuccessfulValues(promises) {
   //   1. Call Promise.allSettled(promises).
   //   2. Keep only results with status === "fulfilled".
   //   3. Return an array of their .value fields.
-  return Promise.allSettled(promises).then(results => 
-    results
-      .filter(result => result.status === "fulfilled")
-      .map(result => result.value)
-  );
+  return Promise.allSettled(promises).then(results =>results.filter(result => result.status === "fulfilled").map(result => result.value));
 }
 
 /**
@@ -162,8 +152,8 @@ function collectSuccessfulValues(promises) {
  */
 async function apiHealth(request) {
   const response = await request.get("/api/health");
-  const data = await response.json();
-  return data;
+  const d = await response.json();
+  return d;
 }
 
 /**
